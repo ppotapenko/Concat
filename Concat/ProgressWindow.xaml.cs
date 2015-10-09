@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿#region using
+
+using System;
 using System.ComponentModel;
+using System.Windows;
+
+#endregion
 
 namespace SimpleWPFProgressWindow
 {
     /// <summary>
-    /// Interaction logic for ProgressWindow.xaml
+    ///     Interaction logic for ProgressWindow.xaml
     /// </summary>
     public partial class ProgressWindow : Window, INotifyPropertyChanged
     {
@@ -33,57 +27,65 @@ namespace SimpleWPFProgressWindow
             Loaded += ProgressWindow_Loaded;
         }
 
-        void ProgressWindow_Loaded(object sender, RoutedEventArgs e)
+        private void ProgressWindow_Loaded(object sender, RoutedEventArgs e)
         {
             _operation.Start();
         }
 
-        void _operation_Complete(object sender, EventArgs e)
+
+        private void ButtonStart_Click(object sender, RoutedEventArgs e)
+        {
+            _operation = new FileConcater(((FileCounter)_operation).Files, "c:test", Total);
+
+            _operation.ProgressChanged += _operation_ProgressChanged;
+            _operation.ProgressTotalChanged += _operation_TotalChanged;
+            _operation.Complete += _operation_Complete;
+
+            _operation.Start();
+            ButtonStart.Visibility = Visibility.Hidden;
+        }
+
+        private void _operation_Complete(object sender, EventArgs e)
         {
             if (sender.GetType() == typeof (FileCounter))
             {
-                _operation.ProgressChanged += _operation_ProgressChanged;
-                _operation.ProgressTotalChanged += _operation_TotalChanged;
-                _operation.Complete += _operation_Complete;
+                ButtonStart.Visibility = Visibility.Visible;
             }
-            Close();
+            else
+            {
+                Close();
+            }
         }
 
-        void _operation_ProgressChanged(object sender, EventArgs e)
+        private void _operation_ProgressChanged(object sender, EventArgs e)
         {
             OnPropertyChanged("Current");
         }
 
-        void _operation_TotalChanged(object sender, EventArgs e)
+        private void _operation_TotalChanged(object sender, EventArgs e)
         {
             OnPropertyChanged("Total");
         }
 
         private void CancelClick(object sender, RoutedEventArgs e)
         {
-            this._operation.CancelAsync();
+            _operation.CancelAsync();
         }
 
         public int Current
         {
-            get
-            {
-                return this._operation.Current;
-            }
+            get { return _operation.Current; }
         }
 
         public int Total
         {
-            get
-            {
-                return this._operation.Total;
-            }
+            get { return _operation.Total; }
         }
 
         #region INotifyPropertyChanged Members
 
         /// <summary>
-        /// Notify property changed
+        ///     Notify property changed
         /// </summary>
         /// <param name="propertyName">Property name</param>
         protected void OnPropertyChanged(string propertyName)
@@ -93,6 +95,7 @@ namespace SimpleWPFProgressWindow
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        #endregion       
+        #endregion
+
     }
 }

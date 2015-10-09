@@ -57,7 +57,7 @@ namespace SimpleWPFProgressWindow
                 var files = dir.GetFiles().Where(f => FilterExt.IsMatch(f.Name)).OrderBy(f => f.Name).ToList();
                 if (files.Any())
                 {
-                    _files.AddRange(files);
+                    Files.AddRange(files);
                     Total += files.Count();
                 }
             }
@@ -122,6 +122,11 @@ namespace SimpleWPFProgressWindow
         public Regex FilterExt
         {
             get { return _filterExt; }
+        }
+
+        public List<FileInfo> Files
+        {
+            get { return _files; }
         }
 
         /// <summary>

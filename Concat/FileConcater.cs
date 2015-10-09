@@ -1,6 +1,7 @@
 ﻿#region using
 
 using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
@@ -22,12 +23,9 @@ namespace SimpleWPFProgressWindow
         private string _filterExt;
         private string _ignoreFolders;
 
-        public FileConcater(string dirPath, string filterExt, string ignoreFolders)
+        public FileConcater(List<FileInfo> fileInfos , string savePath, int total)
         {
-            _ignoreFolders = ignoreFolders;
-            _filterExt = filterExt;
-            _dirPath = dirPath;
-            _total = 0;
+            _total = total;
             _current = 0;
             _isCancelationPending = false;
         }

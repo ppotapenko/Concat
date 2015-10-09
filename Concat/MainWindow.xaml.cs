@@ -60,6 +60,7 @@ namespace Concat
                 var progressWindow =
                     new ProgressWindow(new FileCounter(TextBoxDirPath.Text, TextBoxFilterExt.Text, ignoreFolders));
                 //runs the progress operation upon window load
+                progressWindow.ButtonStart.Visibility = Visibility.Hidden;
                 progressWindow.ShowDialog();
             }
         }
