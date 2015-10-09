@@ -3,16 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="450  " Width="800">
     <Grid HorizontalAlignment="Center" Width="600" Margin="96,0,96,-43">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="284*"/>
-            <RowDefinition Height="179*"/>
-        </Grid.RowDefinitions>
-        <TextBox x:Name="TextBoxDirPath" HorizontalAlignment="Left" Height="23" Margin="35,54,0,0" TextWrapping="Wrap" Text="укажите путь к директории" VerticalAlignment="Top" Width="386"/>
-        <Button x:Name="ButtonSelectFolder" Content="Выбрать папку" HorizontalAlignment="Left" Margin="432,54,0,0" VerticalAlignment="Top" Width="123" Click="ButtonSelectFolder_Click"/>
-        <Button x:Name="ButtonAddToIgnore" Content="Добавить папку в игнор" HorizontalAlignment="Left" Margin="432,186,0,0" VerticalAlignment="Top" Width="158" Click="ButtonAddToIgnore_Click"/>
-        <TextBox x:Name="TextBoxIgnoreFolders" HorizontalAlignment="Left" Height="121" Margin="35,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386" Grid.RowSpan="2"/>
-        <TextBox x:Name="TextBoxFilterExt" HorizontalAlignment="Left" Height="23" Margin="35,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="555"/>
+        <TextBox x:Name="TextBoxDirPath" HorizontalAlignment="Left" Height="23" Margin="35,54,0,0" TextWrapping="Wrap" Text="D:\Projects\ASP.NET\Gallery" VerticalAlignment="Top" Width="386"/>
+        <Button x:Name="ButtonSelectFolder" Content="Выбрать папку" HorizontalAlignment="Left" Margin="432,54,0,0" VerticalAlignment="Top" Width="123" Click="ButtonSelectFolder_Click" Height="22"/>
+        <Button x:Name="ButtonAddToIgnore" Content="Добавить папку в игнор" HorizontalAlignment="Left" Margin="432,186,0,0" VerticalAlignment="Top" Width="158" Click="ButtonAddToIgnore_Click" Height="22"/>
+        <TextBox x:Name="TextBoxIgnoreFolders" HorizontalAlignment="Left" Height="121" Margin="35,186,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386"  Text="\.git; \packages;"/>
+        <TextBox x:Name="TextBoxFilterExt" HorizontalAlignment="Left" Height="23" Margin="35,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="555" Text="cs"/>
         <Label x:Name="LabelFilterExt" Content="Фильтр расширений (пример ввода: cs, exe, doc)&#xD;&#xA;" HorizontalAlignment="Left" Margin="35,104,0,0" VerticalAlignment="Top" Width="315" Height="26"/>
+        <Button x:Name="ButtonGetResult" Content="Получить файл" HorizontalAlignment="Left" Margin="432,333,0,0" VerticalAlignment="Top" Width="158" Click="ButtonGetResult_Click"/>
 
     </Grid>
 </Window>

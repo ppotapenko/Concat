@@ -15,3 +15,5 @@ D:\Projects\ASP.NET\Concat\Concat\bin\Debug\Microsoft.WindowsAPICodePack.dll
 D:\Projects\ASP.NET\Concat\Concat\bin\Debug\Microsoft.WindowsAPICodePack.Shell.dll
 D:\Projects\ASP.NET\Concat\Concat\bin\Debug\Microsoft.WindowsAPICodePack.xml
 D:\Projects\ASP.NET\Concat\Concat\bin\Debug\Microsoft.WindowsAPICodePack.Shell.xml
+D:\Projects\ASP.NET\Concat\Concat\obj\Debug\ProgressWindow.baml
+D:\Projects\ASP.NET\Concat\Concat\obj\Debug\ProgressWindow.g.cs
