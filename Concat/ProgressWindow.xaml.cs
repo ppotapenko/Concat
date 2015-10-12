@@ -35,7 +35,7 @@ namespace SimpleWPFProgressWindow
 
         private void ButtonStart_Click(object sender, RoutedEventArgs e)
         {
-            _operation = new FileConcater(((FileCounter)_operation).Files, "c:test", Total);
+            _operation = new FileConcater(((FileCounter)_operation).Files, "C:\\Sample.txt", Total);
 
             _operation.ProgressChanged += _operation_ProgressChanged;
             _operation.ProgressTotalChanged += _operation_TotalChanged;
@@ -54,6 +54,7 @@ namespace SimpleWPFProgressWindow
             else
             {
                 Close();
+                MessageBox.Show("Файл успешно сформирован.");
             }
         }
 
