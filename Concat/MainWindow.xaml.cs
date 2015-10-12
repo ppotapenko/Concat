@@ -1,8 +1,10 @@
 ﻿#region using
 
 using System;
+using System.IO;
 using System.Linq;
 using System.Windows;
+using System.Windows.Controls;
 using Microsoft.WindowsAPICodePack.Dialogs;
 using SimpleWPFProgressWindow;
 
@@ -37,10 +39,16 @@ namespace Concat
             var mainDir = TextBoxDirPath.Text;
             dialog.IsFolderPicker = true;
             dialog.InitialDirectory = mainDir;
+            dialog.Multiselect = true;
             var result = dialog.ShowDialog();
             if (result == CommonFileDialogResult.Ok)
             {
-                TextBoxIgnoreFolders.Text += dialog.FileName.Remove(0, mainDir.Length) + ";\n";
+                foreach (var dirName in dialog.FileNames)
+                {
+                    TextBoxIgnoreFolders.AppendText(Environment.NewLine);
+                    TextBoxIgnoreFolders.AppendText(dirName.Remove(0, mainDir.Length) + ";");
+                }
+                TextBoxIgnoreFolders.Text = TextBoxIgnoreFolders.Text.TrimStart(Environment.NewLine.ToCharArray());
             }
         }
 
@@ -48,7 +56,7 @@ namespace Concat
         {
             var dialog = new CommonSaveFileDialog();
             dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            dialog.DefaultFileName = "Result";
+            dialog.DefaultFileName = new DirectoryInfo(TextBoxDirPath.Text).Name;
             dialog.AlwaysAppendDefaultExtension = true;
             dialog.DefaultExtension = "txt";
             dialog.AlwaysAppendDefaultExtension = true;
@@ -56,11 +64,23 @@ namespace Concat
             var result = dialog.ShowDialog();
             if (result == CommonFileDialogResult.Ok)
             {
-                var ignoreFolders = TextBoxIgnoreFolders.Text.Trim().Trim('\n').TrimEnd(';').Split(';').ToList();
-                var progressWindow =
-                    new ProgressWindow(new FileCounter(TextBoxDirPath.Text, TextBoxFilterExt.Text, ignoreFolders));
+                var ignoreFolders =
+                    TextBoxIgnoreFolders.Text
+                        .Trim()
+                        .Replace("\r", String.Empty)
+                        .Replace("\n", String.Empty)
+                        .Replace(" ", String.Empty)
+                        .TrimEnd(';')
+                        .Split(';')
+                        .ToList();
+
+                var fileCounter = new FileCounter(TextBoxDirPath.Text, TextBoxFilterExt.Text, ignoreFolders);
+                var progressWindow = new ProgressWindow(fileCounter, dialog.FileName, TextBoxFileTitle.Text)
+                {
+                    ButtonStart = {Visibility = Visibility.Hidden}
+                };
+
                 //runs the progress operation upon window load
-                progressWindow.ButtonStart.Visibility = Visibility.Hidden;
                 progressWindow.ShowDialog();
             }
         }

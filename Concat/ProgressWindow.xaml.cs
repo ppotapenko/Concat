@@ -14,10 +14,14 @@ namespace SimpleWPFProgressWindow
     public partial class ProgressWindow : Window, INotifyPropertyChanged
     {
         private IProgressOperation _operation;
+        private readonly string _fileName;
+        private readonly string _fileTitle;
 
-        public ProgressWindow(IProgressOperation operation)
+        public ProgressWindow(IProgressOperation operation, string fileName, string fileTitle)
         {
             _operation = operation;
+            _fileName = fileName;
+            _fileTitle = fileTitle;
             _operation.ProgressChanged += _operation_ProgressChanged;
             _operation.ProgressTotalChanged += _operation_TotalChanged;
             _operation.Complete += _operation_Complete;
@@ -32,10 +36,10 @@ namespace SimpleWPFProgressWindow
             _operation.Start();
         }
 
-
         private void ButtonStart_Click(object sender, RoutedEventArgs e)
         {
-            _operation = new FileConcater(((FileCounter)_operation).Files, "C:\\Sample.txt", Total);
+            _operation = new FileConcater(((FileCounter) _operation).Files, _fileName, Total, _fileTitle);
+
 
             _operation.ProgressChanged += _operation_ProgressChanged;
             _operation.ProgressTotalChanged += _operation_TotalChanged;
@@ -70,7 +74,9 @@ namespace SimpleWPFProgressWindow
 
         private void CancelClick(object sender, RoutedEventArgs e)
         {
+            _operation.Complete -= _operation_Complete;
             _operation.CancelAsync();
+            Close();
         }
 
         public int Current
@@ -97,6 +103,5 @@ namespace SimpleWPFProgressWindow
         public event PropertyChangedEventHandler PropertyChanged;
 
         #endregion
-
     }
 }

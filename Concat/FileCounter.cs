@@ -43,7 +43,7 @@ namespace SimpleWPFProgressWindow
             {
                 return;
             }
-            if (_ignoreFolders.Find(p => Path.Combine(_dirPath, p) == path) == null)
+            if (_ignoreFolders.Find(p => _dirPath + p == path) == null)
             {
                 var dir = new DirectoryInfo(path);
                 var dirs = dir.GetDirectories("*", SearchOption.TopDirectoryOnly).OrderBy(d => d.Name);

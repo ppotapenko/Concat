@@ -17,14 +17,16 @@ namespace SimpleWPFProgressWindow
         private readonly List<FileInfo> _fileInfos;
         private readonly string _savePath;
         private int _total;
+        private readonly string _fileTitle;
         private int _current;
         private bool _isCancelationPending;
 
-        public FileConcater(List<FileInfo> fileInfos, string savePath, int total)
+        public FileConcater(List<FileInfo> fileInfos, string savePath, int total, string fileTitle)
         {
             _fileInfos = fileInfos;
             _savePath = savePath;
             _total = total;
+            _fileTitle = fileTitle;
             _current = 0;
             _isCancelationPending = false;
         }
@@ -41,7 +43,9 @@ namespace SimpleWPFProgressWindow
                     }
                     using (var sr = File.OpenText(fileInfo.FullName))
                     {
-                        file.WriteLine("Программный модуль: {0}\n", fileInfo.FullName);
+                        file.WriteLine(_fileTitle.Replace("\\n", Environment.NewLine));
+                        file.WriteLine(_fileTitle.Replace("\\r", Environment.NewLine));
+                        file.WriteLine(fileInfo.FullName);
 //                        var s = "";
 //                        while ((s = sr.ReadLine()) != null)
 //                        {
