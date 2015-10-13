@@ -1,7 +1,7 @@
-﻿<Window x:Class="SimpleWPFProgressWindow.ProgressWindow"
+﻿<Window x:Class="Concat.ProgressWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    Title="Progress" Height="110" Width="300" 
+    Title="Обработка файлов" Height="110" Width="300" 
         
     ResizeMode="CanMinimize"
     WindowStartupLocation="CenterScreen"
@@ -29,8 +29,8 @@
                    Maximum="{Binding Path=Total, ElementName=Window, Mode=OneWay}">
             </ProgressBar>
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center"/>
-            <Button x:Name="ButtonCancel" Margin="200,6,10,6" Height="30" Click="CancelClick" Content="Отмена" Grid.Row="2"/>
-            <Button x:Name="ButtonStart" Margin="10,6,200,6" Height="30" Content="Начать" Grid.Row="2" Click="ButtonStart_Click"/>
+            <Button x:Name="ButtonCancel" Margin="190,6,10,6" Height="30" Click="CancelClick" Content="Отмена" Grid.Row="2"/>
+            <Button x:Name="ButtonStart" Margin="10,6,190,6" Height="30" Content="Обработать" Grid.Row="2" Click="ButtonStart_Click"/>
         </Grid>
     </Border>
 </Window>

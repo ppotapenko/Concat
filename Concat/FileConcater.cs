@@ -7,7 +7,7 @@ using System.IO;
 
 #endregion
 
-namespace SimpleWPFProgressWindow
+namespace Concat
 {
     /// <summary>
     ///     Save text from files into result file on a worker thread with progress reporting
@@ -16,7 +16,7 @@ namespace SimpleWPFProgressWindow
     {
         private readonly List<FileInfo> _fileInfos;
         private readonly string _savePath;
-        private int _total;
+        private readonly int _total;
         private readonly string _fileTitle;
         private int _current;
         private bool _isCancelationPending;
@@ -46,7 +46,7 @@ namespace SimpleWPFProgressWindow
                         file.WriteLine(_fileTitle.Replace("\\n", Environment.NewLine));
                         file.WriteLine(_fileTitle.Replace("\\r", Environment.NewLine));
                         file.WriteLine(fileInfo.FullName);
-                        var s = "";
+                        string s;
                         while ((s = sr.ReadLine()) != null)
                         {
                             file.WriteLine(s);
@@ -64,7 +64,7 @@ namespace SimpleWPFProgressWindow
             OnComplete(EventArgs.Empty);
         }
 
-        protected virtual void OnProgressChanged(EventArgs e)
+        private void OnProgressChanged(EventArgs e)
         {
             if (ProgressChanged != null)
             {
@@ -72,15 +72,7 @@ namespace SimpleWPFProgressWindow
             }
         }
 
-        protected virtual void OnProgressTotalChanged(EventArgs e)
-        {
-            if (ProgressTotalChanged != null)
-            {
-                ProgressTotalChanged(this, e);
-            }
-        }
-
-        protected virtual void OnComplete(EventArgs e)
+        private void OnComplete(EventArgs e)
         {
             if (Complete != null)
             {
@@ -93,11 +85,6 @@ namespace SimpleWPFProgressWindow
         public int Total
         {
             get { return _total; }
-            private set
-            {
-                _total = value;
-                OnProgressTotalChanged(EventArgs.Empty);
-            }
         }
 
         public int Current
@@ -111,7 +98,7 @@ namespace SimpleWPFProgressWindow
         }
 
         /// <summary>
-        ///     Starts the background operation that will export the event logs
+        ///     Starts the background operation
         /// </summary>
         public void Start()
         {
@@ -122,7 +109,7 @@ namespace SimpleWPFProgressWindow
         }
 
         /// <summary>
-        ///     Requests cancelation of the event log exporting
+        ///     Requests cancelation
         /// </summary>
         public void CancelAsync()
         {

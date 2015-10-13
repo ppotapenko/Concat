@@ -9,7 +9,7 @@ using System.Text.RegularExpressions;
 
 #endregion
 
-namespace SimpleWPFProgressWindow
+namespace Concat
 {
     /// <summary>
     ///     Save text from files into result file on a worker thread with progress reporting
@@ -17,7 +17,6 @@ namespace SimpleWPFProgressWindow
     public class FileCounter : IProgressOperation
     {
         private int _total;
-        private int _current;
         private bool _isCancelationPending;
         private readonly string _dirPath;
         private readonly Regex _filterExt;
@@ -31,7 +30,7 @@ namespace SimpleWPFProgressWindow
             _filterExt = new Regex(string.Format(@"$(?<=\.({0}))", filterExt.Replace(',', '|')), RegexOptions.IgnoreCase);
             _dirPath = dirPath;
             _total = 0;
-            _current = 0;
+            Current = 0;
             _isCancelationPending = false;
             _files = new List<FileInfo>();
         }
@@ -73,15 +72,7 @@ namespace SimpleWPFProgressWindow
             OnComplete(EventArgs.Empty);
         }
 
-        protected virtual void OnProgressChanged(EventArgs e)
-        {
-            if (ProgressChanged != null)
-            {
-                ProgressChanged(this, e);
-            }
-        }
-
-        protected virtual void OnProgressTotalChanged(EventArgs e)
+        private void OnProgressTotalChanged(EventArgs e)
         {
             if (ProgressTotalChanged != null)
             {
@@ -89,7 +80,7 @@ namespace SimpleWPFProgressWindow
             }
         }
 
-        protected virtual void OnComplete(EventArgs e)
+        private void OnComplete(EventArgs e)
         {
             if (Complete != null)
             {
@@ -109,17 +100,9 @@ namespace SimpleWPFProgressWindow
             }
         }
 
-        public int Current
-        {
-            get { return _current; }
-            private set
-            {
-                _current = value;
-                OnProgressChanged(EventArgs.Empty);
-            }
-        }
+        public int Current { get; private set; }
 
-        public Regex FilterExt
+        private Regex FilterExt
         {
             get { return _filterExt; }
         }

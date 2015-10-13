@@ -6,12 +6,12 @@ using System.Windows;
 
 #endregion
 
-namespace SimpleWPFProgressWindow
+namespace Concat
 {
     /// <summary>
     ///     Interaction logic for ProgressWindow.xaml
     /// </summary>
-    public partial class ProgressWindow : Window, INotifyPropertyChanged
+    public partial class ProgressWindow : INotifyPropertyChanged
     {
         private IProgressOperation _operation;
         private readonly string _fileName;
@@ -98,7 +98,7 @@ namespace SimpleWPFProgressWindow
         ///     Notify property changed
         /// </summary>
         /// <param name="propertyName">Property name</param>
-        protected void OnPropertyChanged(string propertyName)
+        private void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null) PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
