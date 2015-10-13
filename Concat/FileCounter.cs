@@ -21,11 +21,14 @@ namespace Concat
         private readonly string _dirPath;
         private readonly Regex _filterExt;
         private readonly List<string> _ignoreFolders;
+        private readonly List<string> _globalIgnoreFolders;
         private readonly List<FileInfo> _files;
 
-        public FileCounter(string dirPath, string filterExt, List<string> ignoreFolders)
+        public FileCounter(string dirPath, string filterExt, List<string> ignoreFolders,
+            List<string> globalIgnorefolders)
         {
             _ignoreFolders = ignoreFolders;
+            _globalIgnoreFolders = globalIgnorefolders;
             filterExt = string.IsNullOrEmpty(filterExt) ? @"\w*" : filterExt;
             _filterExt = new Regex(string.Format(@"$(?<=\.({0}))", filterExt.Replace(',', '|')), RegexOptions.IgnoreCase);
             _dirPath = dirPath;
@@ -42,23 +45,23 @@ namespace Concat
             {
                 return;
             }
-            if (_ignoreFolders.Find(p => _dirPath + p == path) == null)
+            var dir = new DirectoryInfo(path);
+            var dirs = dir.GetDirectories("*", SearchOption.TopDirectoryOnly)
+                .Where(d => !_globalIgnoreFolders.Contains(Path.DirectorySeparatorChar + d.Name))
+                .Where(d => !_ignoreFolders.Contains(d.FullName.Substring(_dirPath.Length)))
+                .OrderBy(d => d.Name);
+            if (dirs.Any())
             {
-                var dir = new DirectoryInfo(path);
-                var dirs = dir.GetDirectories("*", SearchOption.TopDirectoryOnly).OrderBy(d => d.Name);
-                if (dirs.Any())
+                foreach (var childDir in dirs)
                 {
-                    foreach (var childDir in dirs)
-                    {
-                        ReadDirectory(childDir.FullName);
-                    }
+                    ReadDirectory(childDir.FullName);
                 }
-                var files = dir.GetFiles().Where(f => FilterExt.IsMatch(f.Name)).OrderBy(f => f.Name).ToList();
-                if (files.Any())
-                {
-                    Files.AddRange(files);
-                    Total += files.Count();
-                }
+            }
+            var files = dir.GetFiles().Where(f => FilterExt.IsMatch(f.Name)).OrderBy(f => f.Name).ToList();
+            if (files.Any())
+            {
+                Files.AddRange(files);
+                Total += files.Count();
             }
         }
 

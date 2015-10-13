@@ -53,11 +53,13 @@ namespace Concat
 
         private void ButtonGetResult_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new CommonSaveFileDialog();
-            dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
-            dialog.DefaultFileName = new DirectoryInfo(TextBoxDirPath.Text).Name;
-            dialog.AlwaysAppendDefaultExtension = true;
-            dialog.DefaultExtension = "txt";
+            var dialog = new CommonSaveFileDialog
+            {
+                InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory),
+                DefaultFileName = new DirectoryInfo(TextBoxDirPath.Text).Name,
+                AlwaysAppendDefaultExtension = true,
+                DefaultExtension = "txt"
+            };
             dialog.AlwaysAppendDefaultExtension = true;
             dialog.Filters.Add(CommonFileDialogStandardFilters.TextFiles);
             var result = dialog.ShowDialog();
@@ -73,7 +75,17 @@ namespace Concat
                         .Split(';')
                         .ToList();
 
-                var fileCounter = new FileCounter(TextBoxDirPath.Text, TextBoxFilterExt.Text, ignoreFolders);
+                var globalIgnoreFolders =
+                    TextBoxGlobalIgnorFolders.Text
+                        .Trim()
+                        .Replace("\r", String.Empty)
+                        .Replace("\n", String.Empty)
+                        .Replace(" ", String.Empty)
+                        .TrimEnd(',')
+                        .Split(',')
+                        .ToList();
+
+                var fileCounter = new FileCounter(TextBoxDirPath.Text, TextBoxFilterExt.Text, ignoreFolders, globalIgnoreFolders);
                 var progressWindow = new ProgressWindow(fileCounter, dialog.FileName, TextBoxFileTitle.Text)
                 {
                     ButtonStart = {Visibility = Visibility.Hidden}

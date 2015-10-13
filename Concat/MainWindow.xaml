@@ -2,19 +2,20 @@
         Icon="Icon1.ico"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Concat" Height="600  " Width="800">
-    <Grid HorizontalAlignment="Center" Width="600" Margin="106,45,86,41">
+        Title="Concat" Height="657" Width="800">
+    <Grid HorizontalAlignment="Center" Width="600" Margin="102,50,90,50">
         <TextBox x:Name="TextBoxDirPath" HorizontalAlignment="Left" Height="23" Margin="35,54,0,0" TextWrapping="Wrap" Text="D:\Projects\ASP.NET\Gallery" VerticalAlignment="Top" Width="386"/>
         <Button x:Name="ButtonSelectFolder" Content="Выбрать папку" HorizontalAlignment="Left" Margin="432,54,0,0" VerticalAlignment="Top" Width="123" Click="ButtonSelectFolder_Click" Height="22"/>
         <Button x:Name="ButtonAddToIgnore" Content="Добавить папку в игнор" HorizontalAlignment="Left" Margin="432,219,0,0" VerticalAlignment="Top" Width="158" Click="ButtonAddToIgnore_Click" Height="22"/>
-        <TextBox x:Name="TextBoxIgnoreFolders" HorizontalAlignment="Left" Height="121" Margin="35,219,0,0" VerticalAlignment="Top" Width="386"  Text="\.git;&#xD;&#xA;\packages;" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
+        <TextBox x:Name="TextBoxIgnoreFolders" HorizontalAlignment="Left" Height="98" Margin="35,219,0,0" VerticalAlignment="Top" Width="386"  Text="\.git;&#xD;&#xA;\.svn;" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>
         <TextBox x:Name="TextBoxFilterExt" HorizontalAlignment="Left" Height="23" Margin="35,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="555" Text="cs"/>
         <Label x:Name="LabelFilterExt" Content="Фильтр расширений файлов (пример ввода: cs, exe, doc)&#xA;" HorizontalAlignment="Left" Margin="35,104,0,0" VerticalAlignment="Top" Width="555" Height="26"/>
-        <Button x:Name="ButtonGetResult" Content="Сформировать файл" HorizontalAlignment="Left" Margin="432,439,0,0" VerticalAlignment="Top" Width="158" Click="ButtonGetResult_Click"/>
-        <TextBox x:Name="TextBoxFileTitle" HorizontalAlignment="Left" Height="23" Margin="35,397,0,0" TextWrapping="Wrap" Text="Программный модуль:\n\n" VerticalAlignment="Top" Width="555"/>
-        <Label x:Name="LabelFileTitle" Content="Текст заголовка для разделения содержимого файлов" HorizontalAlignment="Left" Margin="35,366,0,0" VerticalAlignment="Top" Width="386"/>
+        <Button x:Name="ButtonGetResult" Content="Сформировать файл" HorizontalAlignment="Left" Margin="432,495,0,0" VerticalAlignment="Top" Width="158" Click="ButtonGetResult_Click"/>
+        <TextBox x:Name="TextBoxFileTitle" HorizontalAlignment="Left" Height="23" Margin="35,447,0,0" TextWrapping="Wrap" Text="Программный модуль:\n\n" VerticalAlignment="Top" Width="555"/>
+        <Label x:Name="LabelFileTitle" Content="Текст заголовка для разделения содержимого файлов" HorizontalAlignment="Left" Margin="35,416,0,0" VerticalAlignment="Top" Width="386"/>
         <Label x:Name="LabeldirPath" Content="Путь к рабочей директории" HorizontalAlignment="Left" Margin="35,28,0,0" VerticalAlignment="Top" Width="386"/>
         <Label x:Name="LabelIgnoreFolders" Content="Исключаемые папки в рабочей директории (пример ввода \.git; \packages;)" HorizontalAlignment="Left" Margin="35,188,0,0" VerticalAlignment="Top" Width="555" RenderTransformOrigin="0.523,-7.385" Height="26"/>
-
+        <TextBox x:Name="TextBoxGlobalIgnorFolders" HorizontalAlignment="Left" Height="23" Margin="35,369,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="555" Text="\bin, \obj"/>
+        <Label x:Name="LabelGlobalIgnoreFolders" Content="Исключаемые папки во всех директориях (пример ввода: \bin, \obj, \Content)&#xA;" HorizontalAlignment="Left" Margin="35,338,0,0" VerticalAlignment="Top" Width="555" Height="26"/>
     </Grid>
 </Window>
