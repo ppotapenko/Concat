@@ -46,6 +46,9 @@ namespace SimpleWPFProgressWindow
             _operation.Complete += _operation_Complete;
 
             _operation.Start();
+            TextBlockProcessing.Text = "Обработано файлов:";
+            TextBlockOf.Visibility = Visibility.Visible;
+            TextBlockCurrent.Visibility = Visibility.Visible;
             ButtonStart.Visibility = Visibility.Hidden;
         }
 

@@ -46,13 +46,14 @@ namespace SimpleWPFProgressWindow
                         file.WriteLine(_fileTitle.Replace("\\n", Environment.NewLine));
                         file.WriteLine(_fileTitle.Replace("\\r", Environment.NewLine));
                         file.WriteLine(fileInfo.FullName);
-//                        var s = "";
-//                        while ((s = sr.ReadLine()) != null)
-//                        {
-//                            file.WriteLine(s);
-//                        }
+                        var s = "";
+                        while ((s = sr.ReadLine()) != null)
+                        {
+                            file.WriteLine(s);
+                        }
                     }
-                    file.WriteLine("\n\n");
+                    file.WriteLine(Environment.NewLine);
+                    file.WriteLine(Environment.NewLine);
                     Current++;
                 }
             }

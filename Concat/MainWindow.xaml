@@ -2,7 +2,7 @@
         Icon="Icon1.ico"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="600  " Width="800">
+        Title="Concat" Height="600  " Width="800">
     <Grid HorizontalAlignment="Center" Width="600" Margin="106,45,86,41">
         <TextBox x:Name="TextBoxDirPath" HorizontalAlignment="Left" Height="23" Margin="35,54,0,0" TextWrapping="Wrap" Text="D:\Projects\ASP.NET\Gallery" VerticalAlignment="Top" Width="386"/>
         <Button x:Name="ButtonSelectFolder" Content="Выбрать папку" HorizontalAlignment="Left" Margin="432,54,0,0" VerticalAlignment="Top" Width="123" Click="ButtonSelectFolder_Click" Height="22"/>

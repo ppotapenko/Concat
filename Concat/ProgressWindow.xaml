@@ -16,10 +16,10 @@
                 <RowDefinition Height="42"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-                <TextBlock FontSize="16">Processing:</TextBlock>
-                <TextBlock FontSize="16" Margin="5,0,0,0" Text="{Binding Path=Current, ElementName=Window, Mode=OneWay}"/>
-                <TextBlock FontSize="16" Margin="5,0,5,0">of</TextBlock>
-                <TextBlock FontSize="16" Text="{Binding Path=Total, ElementName=Window, Mode=OneWay}"/>
+                <TextBlock x:Name="TextBlockProcessing" FontSize="16">Найдено файлов:</TextBlock>
+                <TextBlock x:Name="TextBlockCurrent" Visibility="Hidden" FontSize="16" Margin="5,0,0,0" Text="{Binding Path=Current, ElementName=Window, Mode=OneWay}"/>
+                <TextBlock x:Name="TextBlockOf" Visibility="Hidden" FontSize="16" Margin="5,0,5,0">из</TextBlock>
+                <TextBlock x:Name="TextBlockTotal" FontSize="16" Text="{Binding Path=Total, ElementName=Window, Mode=OneWay}"/>
             </StackPanel>
             <ProgressBar Grid.Row="1"
                    Width="200"
@@ -29,8 +29,8 @@
                    Maximum="{Binding Path=Total, ElementName=Window, Mode=OneWay}">
             </ProgressBar>
             <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Center"/>
-            <Button Margin="200,6,10,6" Height="30" Click="CancelClick" Content="Cancel" Grid.Row="2"/>
-            <Button x:Name="ButtonStart" Margin="10,6,200,6" Height="30" Content="Start" Grid.Row="2" Click="ButtonStart_Click"/>
+            <Button x:Name="ButtonCancel" Margin="200,6,10,6" Height="30" Click="CancelClick" Content="Отмена" Grid.Row="2"/>
+            <Button x:Name="ButtonStart" Margin="10,6,200,6" Height="30" Content="Начать" Grid.Row="2" Click="ButtonStart_Click"/>
         </Grid>
     </Border>
 </Window>
