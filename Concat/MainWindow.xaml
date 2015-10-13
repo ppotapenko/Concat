@@ -4,7 +4,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Concat" Height="657" Width="800">
     <Grid HorizontalAlignment="Center" Width="600" Margin="102,50,90,50">
-        <TextBox x:Name="TextBoxDirPath" HorizontalAlignment="Left" Height="23" Margin="35,54,0,0" TextWrapping="Wrap" Text="D:\Projects\ASP.NET\Gallery" VerticalAlignment="Top" Width="386"/>
+        <TextBox x:Name="TextBoxDirPath" HorizontalAlignment="Left" Height="23" Margin="35,54,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="386"/>
         <Button x:Name="ButtonSelectFolder" Content="Выбрать папку" HorizontalAlignment="Left" Margin="432,54,0,0" VerticalAlignment="Top" Width="123" Click="ButtonSelectFolder_Click" Height="22"/>
         <Button x:Name="ButtonAddToIgnore" Content="Добавить папку в игнор" HorizontalAlignment="Left" Margin="432,219,0,0" VerticalAlignment="Top" Width="158" Click="ButtonAddToIgnore_Click" Height="22"/>
         <TextBox x:Name="TextBoxIgnoreFolders" HorizontalAlignment="Left" Height="98" Margin="35,219,0,0" VerticalAlignment="Top" Width="386"  Text="\.git;&#xD;&#xA;\.svn;" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" AcceptsReturn="True"/>

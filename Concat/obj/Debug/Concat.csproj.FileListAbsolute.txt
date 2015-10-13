@@ -1,7 +1,6 @@
 D:\Projects\ASP.NET\Concat\Concat\bin\Debug\Concat.exe.config
 D:\Projects\ASP.NET\Concat\Concat\bin\Debug\Concat.exe
 D:\Projects\ASP.NET\Concat\Concat\bin\Debug\Concat.pdb
-D:\Projects\ASP.NET\Concat\Concat\obj\Debug\Concat.csprojResolveAssemblyReference.cache
 D:\Projects\ASP.NET\Concat\Concat\obj\Debug\MainWindow.baml
 D:\Projects\ASP.NET\Concat\Concat\obj\Debug\MainWindow.g.cs
 D:\Projects\ASP.NET\Concat\Concat\obj\Debug\App.g.cs
