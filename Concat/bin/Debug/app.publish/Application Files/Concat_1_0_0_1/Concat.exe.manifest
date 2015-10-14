@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Concat.exe" version="1.0.0.1" publicKeyToken="2fa6ee272bcd4f62" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Concat" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Concat.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          UAC Manifest Options
+          If you want to change the Windows User Account Control level replace the 
+          requestedExecutionLevel node with one of the following.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         If you want to utilize File and Registry Virtualization for backward 
+         compatibility then delete the requestedExecutionLevel node.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Concat.exe" size="29184">
+      <assemblyIdentity name="Concat" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>2iL4WudXqbs7Sqr+Q2o8V2qP+FjlZOmrrVIbRiOqPYU=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.WindowsAPICodePack.dll" size="104960">
+      <assemblyIdentity name="Microsoft.WindowsAPICodePack" version="1.1.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>QYteepb5phBcxv5FiWqRZOeciEn0C+I6QRtVY6jjoNA=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Microsoft.WindowsAPICodePack.Shell.dll" size="542208">
+      <assemblyIdentity name="Microsoft.WindowsAPICodePack.Shell" version="1.1.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>5vqdnjT/O/Y854JlSxTktUo6vRAiyHvAmQMsKUgVdnI=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Concat.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xm4bo26HQ0LNVwz1vdPYtzhkpMnp2AI5i+f0b+OahTI=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=ARSIS\ppotapenko" issuerKeyHash="1501dd8ab17956ef3ba5d467c1f371a7fec7d299" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>Pc8G+YaixAQ0S9qXxF/3Ed2tDuHFyECxfMU1bgPYJks=</DigestValue></Reference></SignedInfo><SignatureValue>my3tS+177tAOv4rUlUmoM27895SzD3zrMAptB6z6jSYCzC95oH5biQxgmysabkUy2sFMGylsUxrBO9xuUS4k3MZZAe7/qArOXfb06TtW5o29aJDXTNosBeLuNbPSCFj4ajKM6LpPEtIoyo/aa3sMF7hlO9jStjpjxGNzp1Fj/ek=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>+gEOnepsya7QY2Jcw2W8sAJsT7LJsZ/slZY5DW0a4ZYatIGlTa6uRQNe/VrifXFLL/OUdUn8WgBMg9K3OmPIvKSHQCnas08rioBJXZ9Wtv4eUfwTO4P3WY8iWZLK4mPjXXWak3PHw7lX0ieCtUgPdGuvCkYB5JL2fNSgA5zyqGU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="4b26d8036e35c57cb140c8c5e10eaddd11f75fc497da4b3404c4a286f906cf3d" Description="" Url=""><as:assemblyIdentity name="Concat.exe" version="1.0.0.1" publicKeyToken="2fa6ee272bcd4f62" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=ARSIS\ppotapenko</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>lNXgCAvVTLgJnzArkfYSfs253Ipgzg28Y6YTu/4mNu8=</DigestValue></Reference></SignedInfo><SignatureValue>7rQpMHiIgy8wHnzByvUs7LQk1zprheQ7S4UeiRLpk3X2XOQkvoLzoXlZtk57qMc1lYI7aZDlFBEC6/BbERnKfXNqajHU/5Wa9YZk4R2dhXJCsZPh50uzpeFiEEXU75I1k6JkUjfPEMCv1esHCvu+0cObc9qswrlz8eWGg5HrlHs=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>+gEOnepsya7QY2Jcw2W8sAJsT7LJsZ/slZY5DW0a4ZYatIGlTa6uRQNe/VrifXFLL/OUdUn8WgBMg9K3OmPIvKSHQCnas08rioBJXZ9Wtv4eUfwTO4P3WY8iWZLK4mPjXXWak3PHw7lX0ieCtUgPdGuvCkYB5JL2fNSgA5zyqGU=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIB2TCCAUKgAwIBAgIQWe4ZE2qLfYdJrJwwdtnDuDANBgkqhkiG9w0BAQsFADArMSkwJwYDVQQDHiAAQQBSAFMASQBTAFwAcABwAG8AdABhAHAAZQBuAGsAbzAeFw0xNTEwMTQwNzQxMzRaFw0xNjEwMTMxMzQxMzRaMCsxKTAnBgNVBAMeIABBAFIAUwBJAFMAXABwAHAAbwB0AGEAcABlAG4AawBvMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQD6AQ6d6mzJrtBjYlzDZbywAmxPssmxn+yVljkNbRrhlhq0gaVNrq5FA179WuJ9cUsv85R1SfxaAEyD0rc6Y8i8pIdAKdqzTyuKgEldn1a2/h5R/BM7g/dZjyJZksriY+NddZqTc8fDuVfSJ4K1SA90a68KRgHkkvZ81KADnPKoZQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBAJVaAB4+kX+F23WbIhWWzk8aUD6QVVoXuJ2r6OrH3tq7C3q0EEBiWThc/258jKFrPhmgIawJ5xmSm8d8rwR4zwWHNJaScj2H5lzBkMb+uTpjoTiUfNqfnFYIoS9ayZR7B7IJ3GbVDz4qjPlp8RKSX/9p9zQdTimlH9TvvbdemoNY</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>

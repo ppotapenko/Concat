@@ -17,3 +17,7 @@ D:\Projects\ASP.NET\Concat\Concat\bin\Debug\Microsoft.WindowsAPICodePack.Shell.x
 D:\Projects\ASP.NET\Concat\Concat\obj\Debug\ProgressWindow.baml
 D:\Projects\ASP.NET\Concat\Concat\obj\Debug\ProgressWindow.g.cs
 D:\Projects\ASP.NET\Concat\Concat\obj\Debug\Concat.csprojResolveAssemblyReference.cache
+D:\Projects\ASP.NET\Concat\Concat\bin\Debug\Concat.exe.manifest
+D:\Projects\ASP.NET\Concat\Concat\bin\Debug\Concat.application
+D:\Projects\ASP.NET\Concat\Concat\obj\Debug\Concat.exe.manifest
+D:\Projects\ASP.NET\Concat\Concat\obj\Debug\Concat.application
